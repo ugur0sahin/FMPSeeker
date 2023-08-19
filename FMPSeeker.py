@@ -6,11 +6,11 @@ from collections import Counter
 import matplotlib.pyplot as plt
 from networkx.drawing.nx_agraph import graphviz_layout
 
-parser = argparse.ArgumentParser(description="mainDBS and maskPath should be provided.")
-parser.add_argument("--AlterationDBS", type=str, help="İlk float değeri girin")
-parser.add_argument("--minSupports", nargs='+', default=None, type=float, help="Bir liste olarak tamsayıları girin")
-parser.add_argument("--minTreshs", nargs='+', default=None, type=float, help="Bir liste olarak tamsayıları girin")
-parser.add_argument("--maskDBS", type=str, help="İkinci float değeri girin")
+parser = argparse.ArgumentParser(description="mainDBS and maskPath must be provided, The value list belonged minSupports and minTreshs will be introduce as default at the case that doesn't used.")
+parser.add_argument("--AlterationDBS", "-d" ,type=str, help="The filePath of the cohort with patient/position labels as .json(pandasDF) or .csv format, must be provided to search frequent patterns.")
+parser.add_argument("--minSupports","-s" ,nargs='+', default=None, type=float, help="minSupports is the treshold(s) indicating minimum number of Somatic Mutation at the searching tree whih is supported. Single/Multiple inputs can be provided, multiple ones will be combined with another multiple arguments..")
+parser.add_argument("--minTreshs", "-t", nargs='+', default=None, type=float, help="Depending on the Single/Multiple inputs, results will return with the higher confidence than the minTreshs value for each node. The nodes (Somatic Mutatioms) has lower confidences than the minTreshs value will not be considered at the Tree.")
+parser.add_argument("--maskDBS", "-m",type=str, default=None, help="maskDBS gets the path of case filtering file as .json(pandasDF)/.csv format to process cases just will be considered (like just the cases w/ BREAST.Metastatic) to search pairs/pattern at the specific/targeted dataset.")
 args = parser.parse_args()
 
 AltDBSPath = args.AlterationDBS
@@ -122,17 +122,19 @@ if __name__ == '__main__':
 
     except:
         AltDBS = pd.read_csv(AltDBSPath).set_index("Unnamed: 0")
-    try:
-        maskJson = pd.read_json(maskJsonName).index.to_list()
 
-    except:
-        maskJsonFile = open(maskJsonName, "r")
-        maskJson = maskJsonFile.read().rstrip("\n").split("\n")
-        maskJsonFile.close()
+    if maskJsonName is not None:
+        try:
+            maskJson = pd.read_json(maskJsonName).index.to_list()
 
-    intersectMask = list(set(AltDBS.index.to_list()).intersection(set(maskJson)))
-    print(intersectMask)
-    AltDBS = AltDBS.loc[intersectMask]
+        except:
+            maskJsonFile = open(maskJsonName, "r")
+            maskJson = maskJsonFile.read().rstrip("\n").split("\n")
+            maskJsonFile.close()
+
+        intersectMask = list(set(AltDBS.index.to_list()).intersection(set(maskJson)))
+        print(intersectMask)
+        AltDBS = AltDBS.loc[intersectMask]
 
     if minSupports is None or minTreshs is None:
 
