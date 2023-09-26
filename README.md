@@ -121,7 +121,7 @@ __Nurcan Tuncbag__ [ Project Manager - Advisor ] -> ntuncbag@ku.edu.tr
 
 __Bengi Ruken Yavuz__ [ Advisor ] -> bengiy@metu.edu.tr
 
-If you've any question or do you have any bug report;
+If you've any question or any bug report;
 
 __Ugur Sahin__ [ Implementing ] -> usahin19@ku.edu.tr
 
