@@ -121,3 +121,7 @@ The columns are not considered during the process just for the index names that 
 
 # Licence
 
+Licence and Copyright
+
+© 2023 - NETLab| Koc University | Istanbul
+
