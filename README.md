@@ -117,13 +117,13 @@ The columns are not considered during the process just for the index names that 
 
 Contant about Copyright© and Citation ;
 
-Nurcan Tuncbag [ Project Manager - Advisor ] -> ntuncbag@ku.edu.tr
+__Nurcan Tuncbag__ [ Project Manager - Advisor ] -> ntuncbag@ku.edu.tr
 
-Bengi Ruken Yavuz [ Advisor ] -> bengiy@metu.edu.tr
+__Bengi Ruken Yavuz__ [ Advisor ] -> bengiy@metu.edu.tr
 
 If you've any question or do you have any bug report;
 
-Ugur Sahin [ Implementing ] -> usahin19@ku.edu.tr
+__Ugur Sahin__ [ Implementing ] -> usahin19@ku.edu.tr
 
 WebSite KOC UNI - https://mysite.ku.edu.tr/ntuncbag/
 
