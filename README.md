@@ -113,9 +113,19 @@ The columns are not considered during the process just for the index names that 
 * Also there are two more parametric inputs consist of the filter tresholds, the values are uses with `--minSupports` and `--minTreshs` required to determine confidence of pairs and sparsity of tree. The values can be given as multiple float for batching will be evaluated in combination for each value pair.
 
 
-
-
 # Contact
+
+Contant about Copyright© and Citation ;
+
+Nurcan Tuncbag [ Project Manager - Advisor ] -> ntuncbag@ku.edu.tr
+
+Bengi Ruken Yavuz [ Advisor ] -> bengiy@metu.edu.tr
+
+If you've any question or do you have any bug report;
+
+Ugur Sahin [ Implementing ] -> usahin19@ku.edu.tr
+
+WebSite KOC UNI - https://mysite.ku.edu.tr/ntuncbag/
 
 
 
@@ -123,5 +133,5 @@ The columns are not considered during the process just for the index names that 
 
 Licence and Copyright
 
-© 2023 - NETLab| Koc University | Istanbul
+© 2023 - NETLab© | Koc University | Istanbul
 
