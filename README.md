@@ -1,8 +1,5 @@
 # FMPSeeker
 
-
-##Overview
-
 The code makes use of the fpgrowth algorithm and association rules to systematically identify and analyze recurring mutations and their complex interrelationships within the cohort. At its core, the algorithm processes the somatic alteration data within the alteration matrix with a high degree of precision. This manipulation enables the algorithm to reliably ascertain patterns of co-occurring genetic mutations, shedding light on the intricate dynamics of genetic alteration within the cohort.
  
  Also, the code is adept at delineating the relative prevalence of specific genetic mutations, providing valuable insights into the predominance and potential significance of certain mutations within the cohort. This approach contributes to a more comprehensive understanding of the mutation landscape, aiding researchers in deciphering the potential implications of these mutations for disease pathogenesis and therapeutic strategies.
@@ -36,7 +33,7 @@ optional arguments:
 
 </pre>
 
-##Workflow
+# Workflow
 
 Essentially, the code analyzes a binary somatic alteration matrix defined by case or position to identify the most frequent patterns. The matrix undergoes filtering based on the optional maskDBS file, facilitating the examination of prevalent patterns within specific Tissues or Stages characterized by their respective cases. 
 
@@ -50,7 +47,7 @@ Using the minSupports tresholds are considered to find pre-frequent Somatic Muta
 
 - Association rules, inferred from the most prevalent FreqItems, are integrated into the Root (Null) as sorted sequences, progressing from Antecedents to Consequents, with the corresponding relative presence and pair count delineated. The resulting graph is exported in both .xml and .png formats, with the latter being adapted to fit a circular layout.
 
-##Installation
+# Installation
 
 SComatic requires Python(>=3.7), pandas, networkx, matplotlib, pygraphviz and importantly mlxtend (>= 0.22.0).
 
@@ -70,7 +67,13 @@ conda install --file dependencies.txt
 
 After these steps tool is ready to compile.
 
-##Input Format
+# Example
+
+<pre>
+python3 ./FMPSeeker.py --AlterationDBS path/to/Example_Cohort.json --maskDBS path/to/Example_Cases.json --minSupports 0.01 0.05 --minTreshs 0.0095 0.000095
+</pre>
+
+# Input Format
 
 As it explained at the workflow tool generally gets two conjugated inputs consist of; `Example_Cohort.json` and `Example_Cases.json` (Optional). Those datasets can be easily build or can be converted from the `.mafs` and `.vcf` files, In the examples files are directly parsed from the GENIE and TCGA datasets after filtering.
  
@@ -110,15 +113,11 @@ The columns are not considered during the process just for the index names that 
 * Also there are two more parametric inputs consist of the filter tresholds, the values are uses with `--minSupports` and `--minTreshs` required to determine confidence of pairs and sparsity of tree. The values can be given as multiple float for batching will be evaluated in combination for each value pair.
 
 
-##Example
 
 
-##Contact
+# Contact
 
-<pre>
 
-python3 ./FMPSeeker.py --AlterationDBS path/to/Example_Cohort.json --maskDBS path/to/Example_Cases.json --minSupports 0.01 0.05 --minTreshs 0.0095 0.000095"
-</pre>
 
-##Licence
+# Licence
 
